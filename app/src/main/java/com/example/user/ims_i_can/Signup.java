@@ -7,28 +7,27 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class Signup extends AppCompatActivity {
-    ImageView Student,Faculty;
 
+    ImageView imageVIew1,imageVIew2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        Student=(ImageView)findViewById(R.id.Student);
-        Student.setOnClickListener(new View.OnClickListener() {
+        imageVIew1=(ImageView)findViewById(R.id.imageVIew1);
+        imageVIew2=(ImageView)findViewById(R.id.imageVIew2);
+        imageVIew1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Signup.this,Registration.class);
                 startActivity(intent);
             }
         });
-        Faculty=(ImageView)findViewById(R.id.Faculty);
-        Faculty.setOnClickListener(new View.OnClickListener() {
+        imageVIew2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1=new Intent(Signup.this,Faculty_Registration.class);
                 startActivity(intent1);
             }
         });
-
     }
 }

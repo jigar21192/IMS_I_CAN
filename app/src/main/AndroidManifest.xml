@@ -19,25 +19,29 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".LogIn" />
         <activity android:name=".Registration" />
         <activity android:name=".OTP" />
         <activity android:name=".Forget_pwd" />
-        <activity android:name=".Dashboard" />
         <activity android:name=".Ranker_list" />
         <activity android:name=".Registration_Detail" />
         <activity
             android:name=".Drawer"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Signup" />
         <activity android:name=".Faculty_Registration" />
         <activity android:name=".Faculty_Detail" />
         <activity android:name=".Faculty_Login" />
         <activity android:name=".Faculty_Dashboard" />
         <activity android:name=".Faculty_OTP" />
-        <activity android:name=".Faculty_Forget_Password"></activity>
+        <activity android:name=".Faculty_Forget_Password" />
+        <activity android:name=".Dashboard" />
+        <activity android:name=".Signup" />
+        <activity android:name=".Inquiry">
+
+        </activity>
     </application>
 
 </manifest>

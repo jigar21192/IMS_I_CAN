@@ -46,10 +46,10 @@ public class Registration extends AppCompatActivity {
                 String email1=Email.getText().toString();
 
 
-          /*      Intent intent = new Intent(Registration.this, Registration_Detail.class);
+               Intent intent = new Intent(Registration.this, Registration_Detail.class);
                 startActivity(intent);
                 if (validate(Fname) && validate(Lname) && validate(EnrNo) && validate(Bdate) && validate(Mobno) && validate(Pmobno)
-                        && validate(Address) && validate(Email)) ;*/
+                        && validate(Address) && validate(Email)) ;
             }
         });
     }

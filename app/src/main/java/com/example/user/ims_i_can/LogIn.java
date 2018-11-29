@@ -20,7 +20,7 @@ public class LogIn extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
         Fpassword=(TextView)findViewById(R.id.Fpassword);
         Login=(Button)findViewById(R.id.Login);
-        Login.setOnClickListener(new View.OnClickListener() {
+       Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1=new Intent(LogIn.this, Dashboard.class);
