@@ -8,25 +8,31 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Registration extends AppCompatActivity {
+public class Registration extends AppCompatActivity implements
+        AdapterView.OnItemSelectedListener {
     Button Btn;
     EditText Fname, Lname, EnrNo, Bdate, Email, Mobno, Pmobno, Address;
     Spinner State, City, Area;
     RadioButton Rmale, Rfemale;
     RadioGroup Rgroup;
+    Spinner state;
     DatePickerDialog.OnDateSetListener date;
     Calendar myCalendar;
+    String[] statename = { "Gujarat", "Panjab", "Rajasthan" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +45,18 @@ public class Registration extends AppCompatActivity {
         Bdate = (EditText) findViewById(R.id.Bdate);
         Mobno = (EditText) findViewById(R.id.Mobno);
         Pmobno = (EditText) findViewById(R.id.Pmobno);
+        Rmale= findViewById(R.id.Rmale);
+        Rfemale= findViewById(R.id.Rfmale);
+        Rgroup= findViewById(R.id.Rgroup);
         Address = (EditText) findViewById(R.id.Address);
         Email = (EditText) findViewById(R.id.Email);
+        state= findViewById(R.id.State);
+        state.setOnItemSelectedListener(this);
+
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,statename);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        state.setAdapter(aa);
 
         Bdate.setOnClickListener(new View.OnClickListener() {
 
@@ -66,8 +82,17 @@ public class Registration extends AppCompatActivity {
                 String address1=Address.getText().toString();
                 String email1=Email.getText().toString();
 
+                int selectedId = Rgroup.getCheckedRadioButtonId();
 
-               Intent intent = new Intent(Registration.this, Registration_Detail.class);
+                // find the radiobutton by returned id
+                Rmale = findViewById(selectedId);
+
+                Toast.makeText(Registration.this,
+                        Rmale.getText(), Toast.LENGTH_SHORT).show();
+
+
+
+                Intent intent = new Intent(Registration.this, Registration_Detail.class);
                 startActivity(intent);
                 if (validate(Fname) && validate(Lname) && validate(EnrNo) && validate(Bdate) && validate(Mobno) && validate(Pmobno)
                         && validate(Address) && validate(Email)) ;
@@ -125,4 +150,13 @@ public class Registration extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }
