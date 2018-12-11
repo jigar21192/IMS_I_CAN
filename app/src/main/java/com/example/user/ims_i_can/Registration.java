@@ -86,10 +86,12 @@ public class Registration extends AppCompatActivity implements
 
                 // find the radiobutton by returned id
                 Rmale = findViewById(selectedId);
-
-                Toast.makeText(Registration.this,
-                        Rmale.getText(), Toast.LENGTH_SHORT).show();
-
+                if(selectedId==-1){
+                    Toast.makeText(Registration.this,"Nothing selected", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(Registration.this,Rmale.getText(), Toast.LENGTH_SHORT).show();
+                }
 
 
                 Intent intent = new Intent(Registration.this, Registration_Detail.class);
